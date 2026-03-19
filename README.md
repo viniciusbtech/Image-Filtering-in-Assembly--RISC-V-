@@ -16,31 +16,22 @@ The image is represented as a byte array (.byte), and the program iterates over 
 ⚙️ Technologies Used
 
 Language: RISC-V Assembly
-
 Execution environment: RARS (or similar simulator)
 
 🧠 Concepts Covered
 
 Memory manipulation (.data and .text)
-
 Linearized matrix addressing
-
 Loops in Assembly
-
 Register usage
-
 Macro definition (.macro)
-
 Digital image processing
-
 Convolution filtering
 
 🖼️ Image Structure
 
 The image is stored as a linear array:
-
 imagem: .byte ...
-
 Its dimensions are defined as:
 
 linhas:   .word 119
@@ -51,7 +42,6 @@ control:  .word 176   # row width in memory
 The program iterates pixel by pixel (ignoring borders) and applies a convolution filter.
 
 🧩 Kernel (Mask)
-
 The filter used is:
 
 -1  -2  -1
@@ -63,25 +53,17 @@ This kernel is similar to the vertical Sobel operator, commonly used for edge de
 ⚙️ Processing Steps
 
 Read the central pixel
-
 Apply convolution
-
 Multiply neighboring pixels by kernel weights
-
 Accumulate the results
-
 Normalize the result
 
 If < 0 → set to 0
-
 If ≥ 256 → set to 255
 
 Store the result
-
 Save into the secondary matrix
-
 Print the value
-
 Output to console
 
 🔁 Macro Used
@@ -96,58 +78,43 @@ To reduce code repetition, the following macro is defined:
 📌 Purpose:
 
 Loads a neighboring pixel
-
 Multiplies it by the kernel weight
-
 Adds it to the accumulator
 
 💾 Output
 
 The processed values are:
-
 Printed to the console
-
 Stored in memory (matrizsecundaria2)
 
 matrizsecundaria2: .space 21120
+
 ▶️ How to Run
 
 Open the code in a RISC-V simulator (e.g., RARS)
 
 Assemble the program
-
 Run it
-
 Observe the output in the console
 
 📊 Expected Result
 
 The program generates a new image with enhanced vertical edges, useful for:
-
 Computer vision
-
 Image processing
-
 Edge detection
 
 🚀 Possible Improvements
 
 Implement additional filters (horizontal Sobel, Laplacian, blur)
-
 Display the image graphically
-
 Handle border pixels properly
-
 Optimize register usage
-
 Further modularize the code
 
 👨‍💻 Author
 
 This project was developed as practice for:
-
 Low-level programming
-
 Memory manipulation
-
 Image processing in Assembly
